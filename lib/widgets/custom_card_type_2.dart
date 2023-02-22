@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_components/theme/app_theme.dart';
 
 class CustomCardType2 extends StatelessWidget {
-  const CustomCardType2({super.key});
+  final String imageUrl;
+  final String? name;
+  const CustomCardType2({super.key, required this.imageUrl, this.name});
 
   @override
   Widget build(BuildContext context) {
@@ -13,20 +15,20 @@ class CustomCardType2 extends StatelessWidget {
         shadowColor: AppTheme.primary.withOpacity(0.5),
         child: Column(children: [
           //landscape image
-          const FadeInImage(
-            placeholder: AssetImage('assets/jar-loading.gif'),
-            image: NetworkImage(
-                'https://lacgeo.com/sites/default/files/la_gran_sabana_venezuela_opt.jpg'),
+          FadeInImage(
+            placeholder: const AssetImage('assets/jar-loading.gif'),
+            image: NetworkImage(imageUrl),
             width: double.infinity,
             height: 230,
             fit: BoxFit.cover,
-            fadeInDuration: Duration(milliseconds: 300),
+            fadeInDuration: const Duration(milliseconds: 300),
           ),
-          Container(
-            alignment: AlignmentDirectional.centerEnd,
-            padding: const EdgeInsets.only(right: 20, top: 10, bottom: 10),
-            child: const Text('Landscape'),
-          ),
+          if (name != null)
+            Container(
+              alignment: AlignmentDirectional.centerEnd,
+              padding: const EdgeInsets.only(right: 20, top: 10, bottom: 10),
+              child: Text(name ?? 'Landscape'),
+            ),
         ]));
   }
 }

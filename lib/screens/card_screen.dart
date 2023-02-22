@@ -15,7 +15,19 @@ class CardScreen extends StatelessWidget {
         children: const [
           CustomCardType1(),
           SizedBox(height: 10),
-          CustomCardType2()
+          CustomCardType2(
+              imageUrl:
+                  'https://lacgeo.com/sites/default/files/la_gran_sabana_venezuela_opt.jpg',
+              name: 'La Gran Sabana'),
+          SizedBox(height: 10),
+          CustomCardType2(
+              imageUrl:
+                  'https://www.planetware.com/photos-large/VEN/venezuela-angel-falls-morning-view.jpg',
+              name: 'Angel Falls'),
+          SizedBox(height: 10),
+          CustomCardType2(
+              imageUrl:
+                  'https://www.lifeberrys.com/img/article/landscapes-in-venezuela-5-1587713220-lb.jpg'),
         ],
       ),
     );
